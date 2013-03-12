@@ -1,4 +1,4 @@
-ML-2013
+haskell-showcase
 =======
 
-Laboratory assignments for Machine Learning course - FER 2012./2013.
+Laboratory assignments from Artifical Intelligence and Machine Learning courses
