@@ -1,7 +1,7 @@
 -- Matija Sosic
 -- 0036452499
 --
--- Umjetna inteligencija - 4. laboratorijska vjezba
+-- Umjetna inteligencija - 4. laboratorijska vjezba.
 
 import Data.List
 import Data.List.Split
@@ -10,7 +10,7 @@ import Text.Printf
 import System.IO
 import System.Random
 
--- Neural network definition ---------------------------------------------------------
+-- Neural network definition. ---------------------------------------------------------
 
 printList :: [Value] -> String
 printList xs = intercalate " | " $ map (printf "%.4f") xs
@@ -122,11 +122,11 @@ chooseParent ts gen = (parent, gen')
             | (1 / (snd t)) + sum > n   = fst t
             | otherwise = getFirstLarger n ts (sum + 1 / (snd t))  
 
--- Returns wanted number of parents
+-- Returns wanted number of parents.
 chooseParents :: [(a, Value)] -> Int -> StdGen -> ([a], StdGen)
 chooseParents ts n gen = doWithRand (chooseParent ts) n gen
 
--- Do mutations
+-- Do mutations.
 doMutations :: (Taughtable a) => Double -> Value -> [a] -> StdGen -> ([a], StdGen)
 doMutations p k ts gen = doWithRandLs (map (mutate p k) ts) gen
 
@@ -188,10 +188,10 @@ midLayerP = Perceptron [3, 1] sigmoidalF
 outLayerP :: Perceptron
 outLayerP = Perceptron [4, 1, 1, 1, 1] id
 
--- Sample neural network
+-- Sample neural network.
 sampleNN = NeuralNetwork inLayerP (replicate 4 midLayerP) outLayerP
 
--- Sample population
+-- Sample population.
 samplePop = Population (replicate 50 sampleNN)
 
 doWithRand :: (StdGen -> (b, StdGen)) -> Int -> StdGen -> ([b], StdGen)
